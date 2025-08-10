@@ -20,8 +20,6 @@ DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 
   hosted by the Broad Institute at
   `https://broad-alkesgroup-ukbb-ld.s3.amazonaws.com/UKBB_LD/` and converted to
   RDS files for fine-mapping.
-- **Summary statistics** – packaged in `Data/DecodeME/DecodeME_summary.zip`, derived from DecodeME GWAS‑1.
-- **LD matrices** – downloaded on demand from the UK Biobank LD reference hosted by the Broad Institute (<https://broad-alkesgroup-ukbb-ld.s3.amazonaws.com/UKBB_LD/>).
 - **RegulomeDB scores** – obtain from <https://www.regulomedb.org/regulome-search/> and place the score file in the repository root.
 
 ## Requirements
