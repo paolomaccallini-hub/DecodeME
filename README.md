@@ -44,9 +44,9 @@ The internal directory tree is created automatically by `DecodeME_main.R`.
    Rscript DecodeME_main.R
    ```
 
-## Liftover and harmonization
+## Liftover and harmonisation
 
-`DecodeME_main.R` standardizes the summary statistics with
+`DecodeME_main.R` standardises the summary statistics with
 [`format_sumstats`](https://github.com/neurogenomics/MungeSumstats), which
 harmonizes allele columns and **lifts coordinates from GRCh38 to GRCh37**. The
 conversion ensures that downstream steps operate on GRCh37 positions, matching
