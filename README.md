@@ -23,11 +23,6 @@ DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 
 - **RegulomeDB scores** – obtain from <https://www.regulomedb.org/regulome-search/> and place the score file in the repository root.
 
 ## Requirements
-- R (tested with 4.4.1)
-- Python (tested with 3.12)
-- ≥10 GB free disk space
-- Internet access to retrieve LD matrices
-
 - R (tested with version 4.4.1)
 - Python (tested with version 3.12)
 - At least 10 GB of free disk space
