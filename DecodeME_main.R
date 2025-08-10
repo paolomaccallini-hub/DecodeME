@@ -16,7 +16,7 @@ source("DecodeME_func.R",echo=F)
 # Filter summary statistics
 #-------------------------------------------------------------------------------
 #
-file_name<-"My_genes_DEcodeME.csv"
+file_name<-"My_genes_DecodeME.csv"
 if (file.exists(file_name)) file.remove("My_genes_DEcodeME.csv")
 #
 for (pheno in phenotypes) {
@@ -429,7 +429,7 @@ for (pheno in phenotypes) {
     # Add results to final output
     #-------------------------------------------------------------------------
     #
-    file_name<-"My_genes_DEcodeME.csv"
+    file_name<-"My_genes_DecodeME.csv"
     next.row<-data.frame(name="",NCBI.id="",list.name="",weight="",Gene_type="",Study_type="",
                          Phenotype="",Cases="",Sex="",Designation="",Description="",
                          Variant="",
@@ -546,5 +546,6 @@ for (pheno in phenotypes) {
     write.table(mygenes,file_name,sep=";",row.names=F,col.names=T)
   }
 } 
+
 
 
