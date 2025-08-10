@@ -14,7 +14,7 @@ DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 
 ## Data sources
 
 - **Summary statistics** – bundled in `Data/DecodeME/DecodeME_summary.zip` and
-  derived from DecodeME GWAS-1. The pipeline unpacks the relevant phenotype file
+  derived from DecodeME GWAS-1 (https://osf.io/rgqs3/files/osfstorage). The pipeline unpacks the relevant phenotype file
   before processing.
 - **LD matrices** – fetched on demand from the UK Biobank LD reference panel
   hosted by the Broad Institute at
