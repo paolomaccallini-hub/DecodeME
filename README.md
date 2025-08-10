@@ -78,7 +78,7 @@ $$
 
 Values are truncated to lie within $[0,1]$. This approximation is employed because INFO values are not provided in the input data.
 ## Output 1: fine-mapping
-The following images represent the output of fine-mapping on the GWAS-1 cohort (all DecodeME patients). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set.
+The following images represent the output of fine-mapping on the GWAS-1 cohort (all DecodeME patients). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set. Coordinates on x-axis are with respect to GRCh37!
 
 <img width="1000" height="500" alt="gwas_1_1" src="https://github.com/user-attachments/assets/7dbd712c-aef0-4221-abbc-418f52919fe7" />
 <img width="1000" height="500" alt="gwas_1_2" src="https://github.com/user-attachments/assets/b750dc80-c20e-41c4-83fc-104f74472bd3" />
