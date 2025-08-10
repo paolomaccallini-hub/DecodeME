@@ -10,9 +10,6 @@ DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 
 - `DecodeME_func.R` – helper functions and package setup.
 - `DecodeME_config.yml` – configuration file specifying filters, API keys, and phenotype settings.
 - `My_genes_DEcodeME.csv` – example output file created by `DecodeME_main.R`.
-- `DecodeME_main.R` – orchestrates filtering, liftover, and fine-mapping.
-- `DecodeME_func.R` – helper functions and package installation.
-- `DecodeME_config.yml` – configuration for filters, API keys, and phenotypes.
 
 ## Data sources
 
