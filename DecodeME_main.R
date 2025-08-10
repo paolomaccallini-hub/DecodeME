@@ -63,7 +63,8 @@ for (pheno in phenotypes) {
     #
     mydata[,minor_AF:=ifelse(FRQ>0.5,1-FRQ,FRQ)]
     #
-    # Build a proxy for INFO as (1/N*SE^2)/(2*MAF*(1-MAF))
+    # Build a proxy for INFO as 1/(SE^2 * Neff_cc * 2*MAF*(1-MAF)),
+    # where Neff_cc = N * pi_hat * (1 - pi_hat)
     #
     p<-mydata$minor_AF
     pi_hat<-mydata$N_CAS/mydata$N
@@ -546,6 +547,7 @@ for (pheno in phenotypes) {
     write.table(mygenes,file_name,sep=";",row.names=F,col.names=T)
   }
 } 
+
 
 
 
