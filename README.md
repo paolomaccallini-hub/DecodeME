@@ -68,7 +68,7 @@ $$
 
 Values are truncated to lie within $[0,1]$. This approximation is employed because INFO values are not provided in the input data.
 
-### Genome build conversion caveats
+## Genome build conversion caveats
 The original DecodeME summary statistics do not include rsIDs, which means variant identity during genome build conversion is inferred from chromosome, position, and allele data. When using [`MungeSumstats`](https://neurogenomics.github.io/MungeSumstats) for liftover (e.g., GRCh38 → GRCh37), this inference can occasionally lead to allele mismatches or coordinate misalignments. Such errors may generate spurious association signals in downstream analyses. In our tests, two apparent loci were likely artefacts of this process (on Chr10 and Chr15), and they have been manually removed from the output reported below. 
 
 ## Output 1: fine-mapping
