@@ -1,8 +1,7 @@
 # file name: DecodeME_main
 #
 #-------------------------------------------------------------------------------
-# This script performs GWAS analysis (including finemapping) on Neale's Lab 
-# phenotypes for the UKBiobank database
+# This script performs GWAS analysis on DecodeME GWAS-1 summary statistics
 #-------------------------------------------------------------------------------
 #
 #-------------------------------------------------------------------------------
@@ -547,4 +546,5 @@ for (pheno in phenotypes) {
     write.table(mygenes,file_name,sep=";",row.names=F,col.names=T)
   }
 } 
+
 
