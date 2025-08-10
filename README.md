@@ -65,16 +65,18 @@ the genome build used by the UK Biobank LD matrices.
 
 ## INFO column approximation
 Because the DecodeME summary statistics lack an INFO field, the workflow estimates a proxy:
-\[
+
+$$
 \mathrm{INFO_{proxy}} = \frac{1}{\mathrm{SE}^2 \times N_{\mathrm{eff}} \times 2p(1-p)}
-\]
-where \(p\) is the minor allele frequency and \(N_{\mathrm{eff}} = N \times \pi \times (1-\pi)\) with \(\pi = N_{\text{cases}}/N\). Values are truncated to [0,1].
+$$
 
-The original summary statistics do not include an INFO score. The pipeline estimates a proxy INFO value using:
+where $p$ is the minor allele frequency and
 
-\[ \text{INFO\_proxy} = \frac{1}{\text{SE}^2 \times N_{\text{eff}} \times 2p(1-p)} \]
+$$
+N_{\mathrm{eff}} = N \times \pi \times (1-\pi), \quad \pi = \frac{N_{\mathrm{cases}}}{N}
+$$
 
-where \( p \) is the minor allele frequency and \( N_{\text{eff}} = N \times \pi \times (1-\pi) \) with \( \pi = N_{\text{cases}} / N \). Values are truncated to lie within [0, 1]. This approximation is employed because INFO values are not provided in the input data.
+Values are truncated to lie within $[0,1]$. This approximation is employed because INFO values are not provided in the input data.
 ## Output
 An example output `My_genes_DEcodeME.csv` lists genes prioritized after fine‑mapping and annotation steps.
 
