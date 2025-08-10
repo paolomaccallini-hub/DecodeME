@@ -10,16 +10,16 @@
  - `DecodeME_config.yml` – configuration file specifying filters, API keys, and phenotype settings.
  - `My_genes_DEcodeME.csv` – example output file created by `DecodeME_main.R`.
  
-+## Data sources
-+
-+- **Summary statistics** – bundled in `Data/DecodeME/DecodeME_summary.zip` and
-+  derived from DecodeME GWAS-1. The pipeline unpacks the relevant phenotype file
-+  before processing.
-+- **LD matrices** – fetched on demand from the UK Biobank LD reference panel
-+  hosted by the Broad Institute at
-+  `https://broad-alkesgroup-ukbb-ld.s3.amazonaws.com/UKBB_LD/` and converted to
-+  RDS files for fine-mapping.
-+
+ ## Data sources
+ 
+ - **Summary statistics** – bundled in `Data/DecodeME/DecodeME_summary.zip` and
+   derived from DecodeME GWAS-1. The pipeline unpacks the relevant phenotype file
+   before processing.
+ - **LD matrices** – fetched on demand from the UK Biobank LD reference panel
+   hosted by the Broad Institute at
+   `https://broad-alkesgroup-ukbb-ld.s3.amazonaws.com/UKBB_LD/` and converted to
+   RDS files for fine-mapping.
+ 
 +## Requirements
 +
 +- R (tested with version 4.4.1)
@@ -41,48 +41,22 @@
     Rscript DecodeME_main.R
     ```
  
-+## Liftover and harmonization
-+
-+`DecodeME_main.R` standardizes the summary statistics with
-+[`format_sumstats`](https://github.com/neurogenomics/MungeSumstats), which
-+harmonizes allele columns and **lifts coordinates from GRCh38 to GRCh37**. The
-+conversion ensures that downstream steps operate on GRCh37 positions, matching
-+the genome build used by the UK Biobank LD matrices.
-+
+ ## Liftover and harmonization
+ 
+ `DecodeME_main.R` standardizes the summary statistics with
+ [`format_sumstats`](https://github.com/neurogenomics/MungeSumstats), which
+ harmonizes allele columns and **lifts coordinates from GRCh38 to GRCh37**. The
+ conversion ensures that downstream steps operate on GRCh37 positions, matching
+ the genome build used by the UK Biobank LD matrices.
+ 
  ## INFO column approximation
  
--The original summary statistics do not include an INFO score. The pipeline estimates a proxy INFO value using the following approximation:
-+The original summary statistics do not include an INFO score. The pipeline estimates a proxy INFO value using:
+ The original summary statistics do not include an INFO score. The pipeline estimates a proxy INFO value using:
  
--\[
--\text{INFO\_proxy} = \frac{1}{\text{SE}^2 \times N_{\text{eff}} \times 2p(1-p)}
--\]
-+\[ \text{INFO\_proxy} = \frac{1}{\text{SE}^2 \times N_{\text{eff}} \times 2p(1-p)} \]
+ \[ \text{INFO\_proxy} = \frac{1}{\text{SE}^2 \times N_{\text{eff}} \times 2p(1-p)} \]
  
--where \( p \) is the minor allele frequency and \( N_{\text{eff}} = N \times \pi \times (1-\pi) \) with \( \pi = N_{\text{cases}} / N \). Values are truncated to lie within the range [0, 1]. This approximation is employed because INFO values are not provided in the input data.
-+where \( p \) is the minor allele frequency and \( N_{\text{eff}} = N \times \pi \times (1-\pi) \) with \( \pi = N_{\text{cases}} / N \). Values are truncated to lie within [0, 1]. This approximation is employed because INFO values are not provided in the input data.
+ where \( p \) is the minor allele frequency and \( N_{\text{eff}} = N \times \pi \times (1-\pi) \) with \( \pi = N_{\text{cases}} / N \). Values are truncated to lie within [0, 1]. This approximation is employed because INFO values are not provided in the input data.
  
  ## License
  
  This project is distributed without an explicit license. Please contact the authors for reuse permissions.
--+   ```
--+
--+## INFO column approximation
--+
--+The original summary statistics do not include an INFO score. The pipeline estimates a proxy INFO value using the following approximation:
--+
--+\[
--+\text{INFO\_proxy} = \frac{1}{\text{SE}^2 \times N_{\text{eff}} \times 2p(1-p)}
--+\]
--+
--+where \( p \) is the minor allele frequency and \( N_{\text{eff}} = N \times \pi \times (1-\pi) \) with \( \pi = N_{\text{cases}} / N \). Values are truncated to lie within the range [0, 1]. This approximation is employed because INFO values are not provided in the input data.
--+
--+## License
--+
--+This project is distributed without an explicit license. Please contact the authors for reuse permissions.
-- 
--EOF
--)
- 
-EOF
-)
