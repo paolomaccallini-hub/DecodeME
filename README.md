@@ -2,7 +2,7 @@
 
 This repository contains R scripts for processing and fine-mapping DecodeME GWAS-1 summary statistics. The pipeline requires both R and Python and has been tested with **R 4.4.1** and **Python 3.12**.
 ## Overview
-DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 summary statistics. It harmonises inputs, converts genome builds, and retrieves linkage disequilibrium (LD) information for downstream analyses. The pipeline has been tested with **R 4.4.1** and **Python 3.12**.
+DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 summary statistics. It munges inputs, converts genome builds, and retrieves linkage disequilibrium (LD) information for downstream analyses. The pipeline has been tested with **R 4.4.1** and **Python 3.12**.
 
 ## Repository structure
 
@@ -44,11 +44,11 @@ The internal directory tree is created automatically by `DecodeME_main.R`.
    Rscript DecodeME_main.R
    ```
 
-## Liftover and harmonisation
+## Munging and Liftover
 
 `DecodeME_main.R` standardises the summary statistics with
 [`format_sumstats`](https://github.com/neurogenomics/MungeSumstats), which
-harmonizes allele columns and **lifts coordinates from GRCh38 to GRCh37**. The
+munges allele columns and **lifts coordinates from GRCh38 to GRCh37**. The
 conversion ensures that downstream steps operate on GRCh37 positions, matching
 the genome build used by the UK Biobank LD matrices.
 `DecodeME_main.R` invokes [`format_sumstats`](https://github.com/neurogenomics/MungeSumstats) to standardize column names, align alleles, and **convert coordinates from GRCh38 to GRCh37** to match the UK Biobank LD reference.
@@ -66,12 +66,13 @@ $$
 N_{\mathrm{eff}} = N \times \pi \times (1-\pi), \quad \pi = \frac{N_{\mathrm{cases}}}{N}
 $$
 
-Values are truncated to lie within $[0,1]$. This approximation is employed because INFO values are not provided in the input data.
+Values are truncated to lie within $[0,1]$. This approximation is employed because INFO values are not provided in the input data. 
 
-## Genome build conversion caveats
-The original DecodeME summary statistics do not include rsIDs, which means variant identity during genome build conversion is inferred from chromosome, position, and allele data. When using [`MungeSumstats`](https://neurogenomics.github.io/MungeSumstats) for liftover (e.g., GRCh38 → GRCh37), this inference can occasionally lead to allele mismatches or coordinate misalignments. Such errors may generate spurious association signals in downstream analyses. In our tests, two apparent loci were likely artefacts of this process (on Chr10 and Chr15), and they have been manually removed from the output reported below. 
+## Output 
 
-## Output 1: fine-mapping
+This analysis generates two supplementary loci (on chr 10 and chr 15) that are not present in the results by DecodeME (https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). This may be due to the INFO_proxy value that fails at recognising low-quality imputation. I manually removed these two loci from the results reported below.
+
+### Output 1: fine-mapping
 The following images represent the output of fine-mapping on the GWAS-1 cohort (all DecodeME patients). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set. Coordinates on the x-axis are with respect to GRCh37!
 
 <img width="1000" height="500" alt="gwas_1_1" src="https://github.com/user-attachments/assets/7dbd712c-aef0-4221-abbc-418f52919fe7" />
@@ -80,7 +81,7 @@ The following images represent the output of fine-mapping on the GWAS-1 cohort (
 <img width="1000" height="500" alt="gwas_1_6" src="https://github.com/user-attachments/assets/dcc2983b-5da9-46b1-93f6-16fd9e883747" />
 <img width="1000" height="500" alt="gwas_1_7" src="https://github.com/user-attachments/assets/f1931a88-9fdb-4850-95cf-a93ea2dc4c30" />
 
-## Output 2: gene-mapping
+### Output 2: gene-mapping
 An example output `My_genes_DEcodeME.csv` lists genes prioritised after fine‑mapping and annotation steps. The main columns are reported below:
 | name      |   NCBI.id | Variant     | Description   | Tissues                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |:----------|----------:|:------------|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
