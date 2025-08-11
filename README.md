@@ -4,6 +4,8 @@ This repository contains R scripts for processing and fine-mapping DecodeME GWAS
 ## Overview
 DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 summary statistics. It munges inputs, converts genome builds, and retrieves linkage disequilibrium (LD) information for downstream analyses. The pipeline has been tested with **R 4.4.1** and **Python 3.12**.
 
+This pipeline represents a replication of the results discussed in the preprint released by [DecodeME](https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). 
+
 ## Repository structure
 
 - `DecodeME_main.R` – orchestrates filtering, format conversion, and fine mapping.
