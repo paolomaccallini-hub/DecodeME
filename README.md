@@ -70,7 +70,7 @@ Values are truncated to lie within $[0,1]$. This approximation is employed becau
 
 ## Output 
 
-This analysis generates two supplementary loci (on chr 10 and chr 15) that are not present in the results by DecodeME (https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). This may be due to the INFO_proxy value that fails at recognising low-quality imputation. I manually removed these two loci from the results reported below.
+This analysis generates two supplementary loci (on chr 10 and chr 15) that are not present in the results by [DecodeME](https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). This may be due to the INFO_proxy value that fails at recognising low-quality imputation. I manually removed these two loci from the results reported below.
 
 ### Output 1: fine-mapping
 The following images represent the output of fine-mapping on the GWAS-1 cohort (all DecodeME patients). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set. Coordinates on the x-axis are with respect to GRCh37!
