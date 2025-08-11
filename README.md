@@ -35,8 +35,6 @@ This pipeline represents a replication of the results discussed in the preprint 
 The internal directory tree is created automatically by `DecodeME_main.R`.
 
 1. Install [R](https://www.r-project.org/) and [Python](https://www.python.org/) along with the required R packages. The scripts make use of Bioconductor resources such as `SNPlocs.Hsapiens.dbSNP155.GRCh38` and `BSgenome.Hsapiens.NCBI.GRCh38`.
-## Quick start
-1. Install [R](https://www.r-project.org/) and [Python](https://www.python.org/) plus required R packages (e.g., `SNPlocs.Hsapiens.dbSNP155.GRCh38`, `BSgenome.Hsapiens.NCBI.GRCh38`).
 2. Download the RegulomeDB score file and place it in the repository root.
 3. Adjust `DecodeME_config.yml` to provide paths, API keys, and filtering thresholds.
 4. Run the main script (it will automatically build the required folder hierarchy):
