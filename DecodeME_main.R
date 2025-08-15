@@ -375,19 +375,21 @@ for (pheno in phenotypes) {
     #
     #-------------------------------------------------------------------------
     # Search for overlaps on regulatory regions using ABC 
+    # (ABC file is in GRCh37, you can verifiy this by checking last position on chr4!)
     #-------------------------------------------------------------------------
     #
+    print("Collecting significant variant-gene associations by ABC")
     myvariants$ABC.gene<-rep(NA,nrow(myvariants))
     myvariants$ABC.CellType<-rep(NA,nrow(myvariants))
     myvariants$ABC.score<-rep(NA,nrow(myvariants))
     myvariants$ABC.class<-rep(NA,nrow(myvariants))
     for (vi in 1:nrow(myvariants)) {
       if (!is.na(myvariants$var.GRCh38[vi])) {
-        chrom<-strsplit(myvariants$var.GRCh38[vi],"_")[[1]][1]
-        pos<-as.numeric(strsplit(myvariants$var.GRCh38[vi],"_")[[1]][2])
+        chrom<-myvariants$chr[vi]
+        pos<-myvariants$pos[vi]
         temp<-ABC[chr==chrom&start<=pos&end>=pos]
         #
-        # Add gene description and keep only protein coding genes
+        # Add gene description and keep only protein-coding genes
         #
         if(nrow(temp)>0) {
           a<-get_genes(temp$TargetGene,.verbose=F)
@@ -547,6 +549,7 @@ for (pheno in phenotypes) {
     write.table(mygenes,file_name,sep=";",row.names=F,col.names=T)
   }
 } 
+
 
 
 
