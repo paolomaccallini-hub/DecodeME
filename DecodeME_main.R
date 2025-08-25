@@ -19,6 +19,14 @@ source("DecodeME_func.R",echo=F)
 file_name<-"My_genes_DecodeME.csv"
 if (file.exists(file_name)) file.remove("My_genes_DEcodeME.csv")
 #
+# Read variants that passed quality filter
+#
+input_phenotype<-"gwas_qced.var.gz"
+zip_path<-file.path(current_dir,"Data/DecodeME","DecodeME_summary.zip")
+tmpdir<-tempdir()
+unzip(zip_path,files=input_phenotype,exdir=tmpdir)
+myvariants<-fread(file.path(tmpdir,input_phenotype))
+#
 for (pheno in phenotypes) {
   file_name<-paste0("DecodeME_output/",pheno,"_finemapped.csv")
   if(!dir.exists(file_name)) {
@@ -36,6 +44,10 @@ for (pheno in phenotypes) {
     tmpdir<-tempdir()
     unzip(zip_path,files=input_phenotype,exdir=tmpdir)
     mydata<-fread(file.path(tmpdir,input_phenotype))
+    #
+    # Keep only variants that passed quality filter
+    #
+    mydata<-merge(myvariants,mydata,by="ID",all.x=T)
     #
     # Read sample size for selected sex and phenotype
     #
