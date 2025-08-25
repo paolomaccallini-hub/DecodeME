@@ -53,24 +53,9 @@ conversion ensures that downstream steps operate on GRCh37 positions, matching
 the genome build used by the UK Biobank LD matrices.
 `DecodeME_main.R` invokes [`format_sumstats`](https://github.com/neurogenomics/MungeSumstats) to standardize column names, align alleles, and **convert coordinates from GRCh38 to GRCh37** to match the UK Biobank LD reference.
 
-## INFO column approximation
-Because the DecodeME summary statistics lack an INFO field, the workflow estimates a proxy:
-
-$$
-\mathrm{INFO_{proxy}} = \frac{1}{\mathrm{SE}^2 \times N_{\mathrm{eff}} \times 2p(1-p)}
-$$
-
-where $p$ is the minor allele frequency and
-
-$$
-N_{\mathrm{eff}} = N \times \pi \times (1-\pi), \quad \pi = \frac{N_{\mathrm{cases}}}{N}
-$$
-
-Values are truncated to lie within $[0,1]$. This approximation is employed because INFO values are not provided in the input data. 
-
 ## Output 
 
-This analysis generates two supplementary loci (on chr 10 and chr 15) that are not present in the results by [DecodeME](https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). This may be due to the INFO_proxy value that fails at recognising low-quality imputation. I manually removed these two loci from the results reported below.
+This analysis generates two supplementary loci (on chr 10 and chr 15) that are not present in the results by [DecodeME](https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). This may be due to the lift-over from GRCh38 to GRCh37 that was performed on the summary statistics to allow for the use of available UKB LD matrices. I manually removed these two loci from the results reported below.
 
 ### Output 1: fine-mapping
 The following images represent the output of fine-mapping on the GWAS-1 cohort (all DecodeME patients). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set. Coordinates on the x-axis are with respect to GRCh37!
