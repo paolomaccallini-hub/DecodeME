@@ -75,25 +75,6 @@ for (pheno in phenotypes) {
     #
     mydata[,minor_AF:=ifelse(FRQ>0.5,1-FRQ,FRQ)]
     #
-    # Build a proxy for INFO as 1/(SE^2 * Neff_cc * 2*MAF*(1-MAF)),
-    # where Neff_cc = N * pi_hat * (1 - pi_hat)
-    #
-    p<-mydata$minor_AF
-    pi_hat<-mydata$N_CAS/mydata$N
-    Neff_cc<-mydata$N*pi_hat*(1-pi_hat)              
-    den<-mydata$SE^2*Neff_cc*2*p*(1-p)
-    INFO_proxy<-1/den
-    #
-    INFO_proxy[!is.finite(INFO_proxy)]<-NA
-    INFO_proxy[INFO_proxy>1]<-1
-    INFO_proxy[INFO_proxy<0]<-0
-    #
-    mydata$INFO_proxy<-INFO_proxy
-    #
-    # Filter by INFO_PROXY
-    #
-    mydata<-mydata[INFO_proxy>INFOco]
-    #
     # Edit the names of the columns to match Neale Lab standard
     #
     mydata<-subset.data.frame(mydata,select=-CHR)
@@ -561,6 +542,7 @@ for (pheno in phenotypes) {
     write.table(mygenes,file_name,sep=";",row.names=F,col.names=T)
   }
 } 
+
 
 
 
