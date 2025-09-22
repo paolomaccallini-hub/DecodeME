@@ -60,11 +60,21 @@ This analysis generates two supplementary loci (on chr 10 and chr 15) that are n
 ### Output 1: fine-mapping
 The following images represent the output of fine-mapping on the GWAS-1 cohort (all DecodeME patients). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set. Coordinates on the x-axis are with respect to GRCh37!
 
-<img width="1000" height="500" alt="gwas_1_1" src="https://github.com/user-attachments/assets/7dbd712c-aef0-4221-abbc-418f52919fe7" />
-<img width="1000" height="500" alt="gwas_1_2" src="https://github.com/user-attachments/assets/b750dc80-c20e-41c4-83fc-104f74472bd3" />
-<img width="1000" height="500" alt="gwas_1_5" src="https://github.com/user-attachments/assets/cf03f5d3-bcf9-4691-bef5-845686b5798a" />
-<img width="1000" height="500" alt="gwas_1_6" src="https://github.com/user-attachments/assets/dcc2983b-5da9-46b1-93f6-16fd9e883747" />
-<img width="1000" height="500" alt="gwas_1_7" src="https://github.com/user-attachments/assets/f1931a88-9fdb-4850-95cf-a93ea2dc4c30" />
+<img width="1000" height="500" alt="gwas_1_infectious_onset_1" src="https://github.com/user-attachments/assets/76a270d8-2f16-49f0-aa3d-94c0fbc198a1" />
+<img width="1000" height="500" alt="gwas_1_infectious_onset_2" src="https://github.com/user-attachments/assets/0c061aa5-3bcc-457c-9150-92bf787a32e2" />
+<img width="1000" height="500" alt="gwas_1_infectious_onset_3" src="https://github.com/user-attachments/assets/ad0ea391-c2f9-48ed-b4c8-a64a8d632fd0" />
+<img width="1000" height="500" alt="gwas_1_female_1" src="https://github.com/user-attachments/assets/45a2ca8a-f6e0-43c9-9ff2-4d00e0e5ed89" />
+<img width="1000" height="500" alt="gwas_1_female_2" src="https://github.com/user-attachments/assets/5bd98ad8-cc28-48a5-832f-516eda00dadd" />
+<img width="1000" height="500" alt="gwas_1_female_3" src="https://github.com/user-attachments/assets/15a4404e-e195-44a8-9797-7213395d080c" />
+<img width="1000" height="500" alt="gwas_2_1" src="https://github.com/user-attachments/assets/cd2101c7-776b-44a4-bf19-0c0ed5a11720" />
+<img width="1000" height="500" alt="gwas_2_2" src="https://github.com/user-attachments/assets/93ccefb8-1b62-4da3-8e4d-b8c36a243c4a" />
+<img width="1000" height="500" alt="gwas_2_3" src="https://github.com/user-attachments/assets/a8cfc424-63da-444e-8742-ae5bb3d01165" />
+<img width="1000" height="500" alt="gwas_2_4" src="https://github.com/user-attachments/assets/efd34825-230d-42da-ac72-77bb287e057c" />
+<img width="1000" height="500" alt="gwas_1_1" src="https://github.com/user-attachments/assets/711bf8fc-3292-44b9-be76-2f7170de3189" />
+<img width="1000" height="500" alt="gwas_1_2" src="https://github.com/user-attachments/assets/77d7bc6d-2786-4484-ac71-3dd16a55a09a" />
+<img width="1000" height="500" alt="gwas_1_3" src="https://github.com/user-attachments/assets/d3047c90-d1ca-4d6c-bab9-13969dd4900e" />
+<img width="1000" height="500" alt="gwas_1_4" src="https://github.com/user-attachments/assets/b41de0ba-dc2f-46fd-b097-759c6b974a71" />
+<img width="1000" height="500" alt="gwas_1_5" src="https://github.com/user-attachments/assets/ee92b447-2f2f-464e-b91e-d0a12446ed4d" />
 
 ### Output 2: gene-mapping
 Some columns of the output file `My_genes_DecodeME.csv` are reported below, after removal of the genes that refer to the two spurious signals mentioned above. We find the following 18 genes: ABT1, ANKRD45, ARFGEF2, BTN2A2, CSE1L, DARS2, KLHL20, PRDX6, RABGAP1L, RC3H1, SERPINC1, SLC9C2, STAU1, TNFSF4, TRIM38, ZBTB37, ZNFX1, OLFM4. This is a subset of the 32 genes proposed as candidate genes in the [DecodeME preprint](https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-).  
