@@ -1,8 +1,9 @@
 python:
-  path: "/usr/bin/python3"
+  path: C:/Users/macpa/AppData/Local/Programs/Python/Python312
+
 api_keys:
-  OpenGWAS: "YOUR_OPENGWAS_TOKEN"
-  LDlinkR: "YOUR_LDLINKR_TOKEN"
+  OpenGWAS: eyJhbGciOiJSUzI1NiIsImtpZCI6ImF...
+  LDlinkR: 100e14bc74eb
 
 filters:
   p_value_common: 5e-08
@@ -18,6 +19,11 @@ GTEx:
 
 phenotypes:
   - "gwas_1"
+  - "gwas_2"
+  - "gwas_1_female"
+  - "gwas_1_male"
+  - "gwas_1_infectious_onset"
+  - "gwas_1_non_infectious_onset"
 
 locus:
   Radius: 500000
