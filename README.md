@@ -2,7 +2,7 @@
 
 This repository contains R scripts for processing and fine-mapping DecodeME GWAS-1 summary statistics. The pipeline requires both R and Python and has been tested with **R 4.4.1** and **Python 3.12**.
 ## Overview
-DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1 summary statistics. It munges inputs, converts genome builds, and retrieves linkage disequilibrium (LD) information for downstream analyses. The pipeline has been tested with **R 4.4.1** and **Python 3.12**.
+DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1, GWAS-2, GWAS-infectious, GWAS-non-infectious, GWAS-female, GWAS-male summary statistics. It munges inputs, converts genome builds, and retrieves linkage disequilibrium (LD) information for downstream analyses. The pipeline has been tested with **R 4.4.1** and **Python 3.12**.
 
 This pipeline represents a replication of the results discussed in the preprint released by [DecodeME](https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). 
 
@@ -16,7 +16,7 @@ This pipeline represents a replication of the results discussed in the preprint 
 ## Data sources
 
 - **Summary statistics** – bundled in `Data/DecodeME/DecodeME_summary.zip` and
-  derived from DecodeME GWAS-1 (https://osf.io/rgqs3/files/osfstorage). The pipeline unpacks the relevant phenotype file
+  derived from DecodeME (https://osf.io/rgqs3/files/osfstorage). The pipeline unpacks the relevant phenotype file
   before processing.
 - **LD matrices** – fetched on demand from the UK Biobank LD reference panel
   hosted by the Broad Institute at
@@ -58,7 +58,7 @@ the genome build used by the UK Biobank LD matrices.
 This analysis generates two supplementary loci (on chr 10 and chr 15) that are not present in the results by [DecodeME](https://www.research.ed.ac.uk/en/publications/initial-findings-from-the-decodeme-genome-wide-association-study-). This may be due to the lift-over from GRCh38 to GRCh37 that was performed on the summary statistics to allow for the use of available UKB LD matrices. I manually removed these two loci from the results reported below.
 
 ### Output 1: fine-mapping
-The following images represent the output of fine-mapping on the GWAS-1 cohort (all DecodeME patients). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set. Coordinates on the x-axis are with respect to GRCh37!
+The following images represent the output of fine-mapping on all the DecodeME cohorts (GWAS-1, GWAS-2, GWAS-infectious, GWAS-non-infectious, GWAS-feale, GWAS-male). Posterior Inclusion Probability (PIP) is reported on the y-axis, and it represents the probability of being a causal variant. Credible sets are defined as sets of variants whose PIPs sum up to 95%. The legend indicates the number of credible sets, the size of each credible set, and the mean linkage disequilibrium (measured as |R|) between each possible pair of variants from the same credible set. Coordinates on the x-axis are with respect to GRCh37!
 
 <img width="1000" height="500" alt="gwas_1_infectious_onset_1" src="https://github.com/user-attachments/assets/76a270d8-2f16-49f0-aa3d-94c0fbc198a1" />
 <img width="1000" height="500" alt="gwas_1_infectious_onset_2" src="https://github.com/user-attachments/assets/0c061aa5-3bcc-457c-9150-92bf787a32e2" />
