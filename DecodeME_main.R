@@ -25,7 +25,7 @@ input_phenotype<-"gwas_qced.var.gz"
 zip_path<-file.path(current_dir,"Data/DecodeME","DecodeME_summary.zip")
 tmpdir<-tempdir()
 unzip(zip_path,files=input_phenotype,exdir=tmpdir)
-myvariants<-fread(file.path(tmpdir,input_phenotype))
+myQCEDvariants<-fread(file.path(tmpdir,input_phenotype))
 #
 for (pheno in phenotypes) {
   file_name<-paste0("DecodeME_output/",pheno,"_finemapped.csv")
@@ -47,7 +47,7 @@ for (pheno in phenotypes) {
     #
     # Keep only variants that passed quality filter
     #
-    mydata<-merge(myvariants,mydata,by="ID",all.x=T)
+    mydata<-mydata[mydata$ID %in% myQCEDvariants$ID, ]
     #
     # Read sample size for selected sex and phenotype
     #
@@ -55,13 +55,12 @@ for (pheno in phenotypes) {
     n_controls<-mydata$N_CONTROLS[1]
     print(paste0("I found ",n_cases," cases and ",n_controls," controls."))
     #
-    # Standardization and lift-over
+    # Munge and Lift-over fro GRCh38 to GRch37
     #
     munge_path<-file.path(current_dir,"Data/DecodeME",paste0(pheno,".tsv.gz"))
     #
     if (!file.exists(munge_path)) {
-      format_sumstats(path=file.path(tmpdir,input_phenotype),ref_genome="GRCh38",
-                      convert_ref_genome="GRCh37",save_path=munge_path)  
+      format_sumstats(mydata,ref_genome="GRCh38",convert_ref_genome="GRCh37",save_path=munge_path)  
       mydata<-fread(munge_path)
     } else {
       mydata<-fread(munge_path)
@@ -196,7 +195,7 @@ for (pheno in phenotypes) {
     if (nrow(myvariants)==0) next
     #
     #-------------------------------------------------------------------------
-    # Finemapping with SusieR
+    # Fine-mapping with SusieR
     #-------------------------------------------------------------------------
     #
     mylist<-list()
@@ -204,7 +203,8 @@ for (pheno in phenotypes) {
     for (lc in loci) {
       temp<-subset.data.frame(myvariants,locus==lc)
       print(paste0("Finemapping locus ",lc))
-      mylist[[lc]]<-Fine_map_LD(temp)
+      result<-try(Fine_map_LD(temp),silent=T)
+      if (class(result)[1]!="try-error") mylist[[lc]]<-result
     }
     myvariants<-do.call(rbind,mylist)
     myvariants<-subset.data.frame(myvariants,PIP>PIPco&CS!="-1")
@@ -377,33 +377,31 @@ for (pheno in phenotypes) {
     myvariants$ABC.score<-rep(NA,nrow(myvariants))
     myvariants$ABC.class<-rep(NA,nrow(myvariants))
     for (vi in 1:nrow(myvariants)) {
-      if (!is.na(myvariants$var.GRCh38[vi])) {
-        chrom<-myvariants$chr[vi]
-        pos<-myvariants$pos[vi]
-        temp<-ABC[chr==chrom&start<=pos&end>=pos]
-        #
-        # Add gene description and keep only protein-coding genes
-        #
-        if(nrow(temp)>0) {
-          a<-get_genes(temp$TargetGene,.verbose=F)
-          if (nrow(a)>0) {
-            a<-subset.data.frame(a,select=c("geneSymbol","geneType"))
-            a<-subset.data.frame(a,geneType=="protein coding")
-            index<-which(temp$TargetGene%in%a$geneSymbol)
-            temp<-temp[index,]
-          } else {
-            temp<-data.frame()
-          }
+      chrom<-myvariants$chr[vi]
+      pos<-myvariants$pos[vi]
+      temp<-ABC[chr==chrom&start<=pos&end>=pos]
+      #
+      # Add gene description and keep only protein-coding genes
+      #
+      if(nrow(temp)>0) {
+        a<-get_genes(temp$TargetGene,.verbose=F)
+        if (nrow(a)>0) {
+          a<-subset.data.frame(a,select=c("geneSymbol","geneType"))
+          a<-subset.data.frame(a,geneType=="protein coding")
+          index<-which(temp$TargetGene%in%a$geneSymbol)
+          temp<-temp[index,]
+        } else {
+          temp<-data.frame()
         }
-        #
-        # Write results
-        #
-        if (nrow(temp)>0) {
-          myvariants$ABC.gene[vi]<-paste0(temp$TargetGene,collapse="/")
-          myvariants$ABC.CellType[vi]<-paste0(temp$CellType,collapse="/")
-          myvariants$ABC.score[vi]<-paste0(temp$ABC.Score,collapse="/")
-          myvariants$ABC.class[vi]<-paste0(temp$class,collapse="/")
-        }
+      }
+      #
+      # Write results
+      #
+      if (nrow(temp)>0) {
+        myvariants$ABC.gene[vi]<-paste0(temp$TargetGene,collapse="/")
+        myvariants$ABC.CellType[vi]<-paste0(temp$CellType,collapse="/")
+        myvariants$ABC.score[vi]<-paste0(temp$ABC.Score,collapse="/")
+        myvariants$ABC.class[vi]<-paste0(temp$class,collapse="/")
       }
     }
     #
@@ -538,13 +536,7 @@ for (pheno in phenotypes) {
     #
     # Save 
     #
-    file_name<-"My_genes_DEcodeME.csv"
+    file_name<-"My_genes_DecodeME.csv"
     write.table(mygenes,file_name,sep=";",row.names=F,col.names=T)
   }
 } 
-
-
-
-
-
-
