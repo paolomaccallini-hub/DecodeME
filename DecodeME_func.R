@@ -42,7 +42,6 @@ MAFco_c<-as.numeric(config$filters$maf_common) # lower cut-off for minor allele 
 MAFco_uc<-as.numeric(config$filters$maf_uncommon) # lower cut-off for minor allele frequency of uncommon myvariants
 PIPco<-as.numeric(config$filters$pip_cutoff) # remove variants with PIP below PIPco after finemapping
 ABCco<-as.numeric(config$filters$abc_score_cutoff) # remove variants with ABC.score below ABCco after finemapping
-INFOco<-as.numeric(config$filters$INFO_cutoff) # cut off for INFO 
 exonic_variants <- c(
   "missense_variant",
   "synonymous_variant",
