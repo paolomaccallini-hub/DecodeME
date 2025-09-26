@@ -1,6 +1,6 @@
 # DecodeME Pipeline
 
-This repository contains R scripts for processing and fine-mapping DecodeME GWAS-1 summary statistics. The pipeline requires both R and Python and has been tested with **R 4.4.1** and **Python 3.12**.
+This repository contains R scripts for processing and fine-mapping DecodeME summary statistics. The pipeline requires both R and Python and has been tested with **R 4.4.1** and **Python 3.12**.
 ## Overview
 DecodeME is an R-based workflow for processing and fine-mapping DecodeME GWAS-1, GWAS-2, GWAS-infectious, GWAS-non-infectious, GWAS-female, GWAS-male summary statistics. It munges inputs, converts genome builds, and retrieves linkage disequilibrium (LD) information for downstream analyses. The pipeline has been tested with **R 4.4.1** and **Python 3.12**.
 
