@@ -96,3 +96,27 @@ The first rows of the output file `My_genes_DecodeME.csv` are reported below. We
 | ANKRD45 | 339416  | 1      | gwas_2        | 15579 | eQTL        | rs2065171  | Artery_Tibial / Cells_Cultured_fibroblasts / Nerve_Tibial / Thyroid / Skin_Not_Sun_Exposed_Suprapubic / Breast_Mammary_Tissue / Adipose_Subcutaneous / Skin_Sun_Exposed_Lower_leg / Artery_Aorta |
 | ANKRD45 | 339416  | 1      | gwas_2        | 15579 | eQTL        | rs9425435  | Artery_Tibial / Cells_Cultured_fibroblasts / Nerve_Tibial / Thyroid / Skin_Not_Sun_Exposed_Suprapubic / Breast_Mammary_Tissue / Adipose_Subcutaneous / Skin_Sun_Exposed_Lower_leg / Artery_Aorta |
 | ANKRD45 | 339416  | 1      | gwas_2        | 15579 | eQTL        | rs9425757  | Skin_Not_Sun_Exposed_Suprapubic / Skin_Sun_Exposed_Lower_leg / Artery_Tibial / Adipose_Subcutaneous / Cells_Cultured_fibroblasts / Thyroid / Breast_Mammary_Tissue / Artery_Aorta / Nerve_Tibial |
+
+## FUMA/MAGMA
+
+The summary statistics generated after filtering with respect to INFO and after lift-over and munging can be used as input for [FUMA](https://fuma.ctglab.nl/), setting UKB release2b White British as reference population, positional mapping and eQTL mapping (GTEx v8) as gene mapping algorithms. This analysis is publicly available [here](https://fuma.ctglab.nl/browse/663962). FUMA will select risk loci and map them to genes. In this case, it selects a total of 45 genes. Note that FUMA does not apply any fine-mapping method, and this explains why it retrieves a high number of genes.
+
+### Tissie enrichment 
+
+One of FUMA's features is tissue-enrichment analysis against GTEx v.8 (54 tissues), as can be seen in the histogram below.
+
+![magma_exp_gtex_v8_ts_avg_log2TPM_FUMA_jobs663962](https://github.com/user-attachments/assets/686d6d20-7030-43a0-af5b-f231c75304b3)
+
+### Cell enrichment 
+
+Given the prevalence of brain tissues in the previous analysis, I proceed with cell-enrichment (Window Cell Type on FUMA), using human and mouse brains as datasets. The main output is reported below, with a description of cell types and samples.
+
+![step1_FUMA_celltype664019](https://github.com/user-attachments/assets/30586ebe-078d-450f-99bc-65a04978b854)
+
+| Cell Type | Dataset (GEO / Source) | Species | Brain Region | Cortical Layer | Key Marker Genes | Biological Role |
+|-----------|------------------------|---------|---------------|----------------|------------------|------------------|
+| **Neuron (broad)** | [Braun2023 – GSE217415](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE217415) | Human | Developing cortex (Carnegie Stage 18) | All | *DCX*, *TUBB3* | General excitatory neurons; early neurodevelopmental stages |
+| **Neuron (broad)** | [DropViz Atlas](https://dropviz.org/) | Mouse | Whole brain | All | *SLC17A7*, *NEUN* | Confirms neuron-specific enrichment across brain regions |
+| **PC.Neuron_Sc17a7_Fermt1.2_12** | [GSE101601](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE101601) – Linnarsson Lab | Mouse | Somatosensory cortex (S1) | Layers II/III–IV | *SLC17A7* (VGLUT1), *FERMT1* | Excitatory glutamatergic pyramidal neurons; integrate sensory input and project to other cortical regions |
+| **L4_Plcxd2** | [GSE60361](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) – Linnarsson Lab | Mouse | Cortex / hippocampus | Layer IV | *PLCXD2*, *SLC17A7* | Layer IV excitatory projection neurons; receive thalamic sensory input and distribute signals within cortical microcircuits |
+| **S1PyrL4** | [GSE60361](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) – Linnarsson Lab | Mouse | Primary somatosensory cortex (S1) | Layer IV | *SLC17A7*, *TBR1* | Layer IV pyramidal neurons specialized in sensory integration and thalamocortical relay |
