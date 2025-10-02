@@ -45,9 +45,21 @@ for (pheno in phenotypes) {
     unzip(zip_path,files=input_phenotype,exdir=tmpdir)
     mydata<-fread(file.path(tmpdir,input_phenotype))
     #
-    # Keep only variants that passed quality filter
+    # Keep only variants that passed the quality filter
     #
     mydata<-mydata[mydata$ID %in% myQCEDvariants$ID, ]
+    #
+    # Create a folder for FUMA input, if it does not exist
+    #
+    folder_path<-file.path(current_dir,"Data/FUMA_input")  
+    if(!dir.exists(folder_path)) {
+      dir.create(folder_path) 
+    } 
+    #
+    # Save sumstats for FUMA
+    #
+    file_name<-paste0("Data/FUMA_input/",pheno,".csv.gz")
+    fwrite(mydata,file=file_name)
     #
     # Read sample size for selected sex and phenotype
     #
@@ -540,3 +552,4 @@ for (pheno in phenotypes) {
     write.table(mygenes,file_name,sep=";",row.names=F,col.names=T)
   }
 } 
+
