@@ -105,13 +105,13 @@ The summary statistics generated after filtering with respect to INFO and after 
 
 One of FUMA's features is tissue-enrichment analysis against GTEx v.8 (54 tissues), as can be seen in the histogram below.
 
-![magma_exp_gtex_v8_ts_avg_log2TPM_FUMA_jobs663962](https://github.com/user-attachments/assets/686d6d20-7030-43a0-af5b-f231c75304b3)
+<img width="1145" height="598" alt="image" src="https://github.com/user-attachments/assets/b51c6be6-71b1-4997-8bd8-e176f66f9c68" />
 
 ### Cell enrichment 
 
 Given the prevalence of brain tissues in the previous analysis, I proceed with cell-enrichment (Window Cell Type on FUMA), using human and mouse brains as datasets. The main output is reported below, with a description of cell types and samples.
 
-![step1_FUMA_celltype664019](https://github.com/user-attachments/assets/30586ebe-078d-450f-99bc-65a04978b854)
+<img width="697" height="432" alt="Screenshot 2025-10-02 172713" src="https://github.com/user-attachments/assets/72481e74-c8a3-4fde-9f60-1f84a9d36fe8" />
 
 | Cell Type | Species | Brain Region | Cortical Layer | Biological Role |
 |-----------|---------|---------------|----------------|------------------|
