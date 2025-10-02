@@ -113,10 +113,9 @@ Given the prevalence of brain tissues in the previous analysis, I proceed with c
 
 ![step1_FUMA_celltype664019](https://github.com/user-attachments/assets/30586ebe-078d-450f-99bc-65a04978b854)
 
-| Cell Type | Dataset (GEO / Source) | Species | Brain Region | Cortical Layer | Key Marker Genes | Biological Role |
-|-----------|------------------------|---------|---------------|----------------|------------------|------------------|
-| **Neuron (broad)** | [Braun2023 – GSE217415](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE217415) | Human | Developing cortex (Carnegie Stage 18) | All | *DCX*, *TUBB3* | General excitatory neurons; early neurodevelopmental stages |
-| **Neuron (broad)** | [DropViz Atlas](https://dropviz.org/) | Mouse | Whole brain | All | *SLC17A7*, *NEUN* | Confirms neuron-specific enrichment across brain regions |
-| **PC.Neuron_Sc17a7_Fermt1.2_12** | [GSE101601](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE101601) – Linnarsson Lab | Mouse | Somatosensory cortex (S1) | Layers II/III–IV | *SLC17A7* (VGLUT1), *FERMT1* | Excitatory glutamatergic pyramidal neurons; integrate sensory input and project to other cortical regions |
-| **L4_Plcxd2** | [GSE60361](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) – Linnarsson Lab | Mouse | Cortex / hippocampus | Layer IV | *PLCXD2*, *SLC17A7* | Layer IV excitatory projection neurons; receive thalamic sensory input and distribute signals within cortical microcircuits |
-| **S1PyrL4** | [GSE60361](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) – Linnarsson Lab | Mouse | Primary somatosensory cortex (S1) | Layer IV | *SLC17A7*, *TBR1* | Layer IV pyramidal neurons specialized in sensory integration and thalamocortical relay |
+| Cell Type | Dataset                                           | Species | Brain Region | Cortical Layer | Biological Role |
+|-----------|---------------------------------------------------|---------|---------------|----------------|------------------|
+| **Neuron (broad)** | [443_Braun2023_Human_2023_FirstTrimester_Brain_CamegieStage18_level1](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE217415) | Human | Developing cortex (Carnegie Stage 18) | All | General neurons; early neurodevelopmental stages |
+| **PC.Neuron_Sc17a7_Fermt1.2_12** | [DropViz All_level2](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE101601) | Mouse | Somatosensory cortex (S1) | Layers II/III–IV  | Excitatory glutamatergic pyramidal neurons; integrate sensory input and project to other cortical regions |
+| **L4_Plcxd2** | [Linnarsson_GSE101601_Mouse_Somatosensory_cortex](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) | Mouse | Cortex / hippocampus | Layer IV | Layer IV excitatory projection neurons; receive thalamic sensory input and distribute signals within cortical microcircuits |
+| **S1PyrL4** | [Linnarsson_GSE60361_Mouse_Cortex_Hippocampus_level2](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) | Mouse | Primary somatosensory cortex (S1) | Layer IV | Layer IV pyramidal neurons specialized in sensory integration and thalamocortical relay |
