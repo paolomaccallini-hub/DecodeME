@@ -113,9 +113,9 @@ Given the prevalence of brain tissues in the previous analysis, I proceed with c
 
 ![step1_FUMA_celltype664019](https://github.com/user-attachments/assets/30586ebe-078d-450f-99bc-65a04978b854)
 
-| Cell Type | Dataset                                           | Species | Brain Region | Cortical Layer | Biological Role |
-|-----------|---------------------------------------------------|---------|---------------|----------------|------------------|
-| **Neuron (broad)** | [443_Braun2023_Human_2023_FirstTrimester_Brain_CamegieStage18_level1](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE217415) | Human | Developing cortex (Carnegie Stage 18) | All | General neurons; early neurodevelopmental stages |
-| **PC.Neuron_Sc17a7_Fermt1.2_12** | [DropViz All_level2](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE101601) | Mouse | Somatosensory cortex (S1) | Layers II/III–IV  | Excitatory glutamatergic pyramidal neurons; integrate sensory input and project to other cortical regions |
-| **L4_Plcxd2** | [Linnarsson_GSE101601_Mouse_Somatosensory_cortex](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) | Mouse | Cortex / hippocampus | Layer IV | Layer IV excitatory projection neurons; receive thalamic sensory input and distribute signals within cortical microcircuits |
-| **S1PyrL4** | [Linnarsson_GSE60361_Mouse_Cortex_Hippocampus_level2](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60361) | Mouse | Primary somatosensory cortex (S1) | Layer IV | Layer IV pyramidal neurons specialized in sensory integration and thalamocortical relay |
+| Cell Type | Species | Brain Region | Cortical Layer | Biological Role |
+|-----------|---------|---------------|----------------|------------------|
+| **Neuron (broad)** | Human | Developing cortex (Carnegie Stage 18) | All | General neurons; early neurodevelopmental stages |
+| **PC.Neuron_Sc17a7_Fermt1.2_12** |  Mouse | Somatosensory cortex (S1) | Layers II/III–IV  | Excitatory glutamatergic pyramidal neurons; integrate sensory input and project to other cortical regions |
+| **L4_Plcxd2** | Mouse | Cortex / hippocampus | Layer IV | Layer IV excitatory projection neurons; receive thalamic sensory input and distribute signals within cortical microcircuits |
+| **S1PyrL4** | Mouse | Primary somatosensory cortex (S1) | Layer IV | Layer IV pyramidal neurons specialized in sensory integration and thalamocortical relay |
