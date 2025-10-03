@@ -117,8 +117,8 @@ Given the prevalence of brain tissues in the previous analysis, I proceed with c
 |-----------|---------|---------------|----------------|------------------|
 | **Neuron (broad)** | Human | Developing cortex (Carnegie Stage 18) | All | General neurons; early neurodevelopmental stages |
 | **PC.Neuron_Sc17a7_Fermt1.2_12** |  Mouse | Whole Brain | Layers II/III–IV  | Excitatory glutamatergic pyramidal neurons |
-| **L4_Plcxd2** | Mouse | Cortex / hippocampus | Layer IV | Layer IV excitatory projection neurons |
-| **S1PyrL4** | Mouse | Primary somatosensory cortex (S1) | Layer IV | Layer IV pyramidal neurons |
+| **L4_Plcxd2** | Mouse | Cortex / hippocampus | Layer IV | Excitatory projection neurons |
+| **S1PyrL4** | Mouse | Primary somatosensory cortex (S1) | Layer IV | Pyramidal neurons |
 
 ### Comparison with other GWAS
 
