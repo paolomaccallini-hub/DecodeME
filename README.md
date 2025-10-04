@@ -113,10 +113,10 @@ Given the prevalence of brain tissues in the previous analysis, I proceed with c
 
 <img width="697" height="432" alt="Screenshot 2025-10-02 172713" src="https://github.com/user-attachments/assets/72481e74-c8a3-4fde-9f60-1f84a9d36fe8" />
 
-| Cell Type | Species | Region | Cortical Layer | Description |
+| Cell Type | Species | Cortical region | Cortical Layer | Description |
 |-----------|---------|---------------|----------------|------------------|
 | **Neuron** | Human | Cortex | All | Early neurons |
-| **PC.Neuron_Sc17a7_Fermt1.2_12** |  Mouse | Whole Brain | II/III, V, VI  | Excitatory neurons |
+| **PC.Neuron_Sc17a7_Fermt1.2_12** |  Mouse | Posterior | II/III, V, VI  | Excitatory neurons |
 | **L4_Plcxd2** | Mouse | Somatosensory | IV | Excitatory neurons |
 | **S1PyrL4** | Mouse | Somatosensory | IV | Pyramidal neurons |
 
